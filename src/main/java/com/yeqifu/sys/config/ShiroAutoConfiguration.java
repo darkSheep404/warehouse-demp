@@ -58,11 +58,8 @@ public class ShiroAutoConfiguration {
      * 声明凭证匹配器
      */
     @Bean("credentialsMatcher")
-    public HashedCredentialsMatcher hashedCredentialsMatcher() {
-        HashedCredentialsMatcher credentialsMatcher = new HashedCredentialsMatcher();
-        credentialsMatcher.setHashAlgorithmName(hashAlgorithmName);
-        credentialsMatcher.setHashIterations(hashIterations);
-        return credentialsMatcher;
+    public CredentialsMatcher plaintextCredentialsMatcher() {
+        return new PlaintextCredentialsMatcher();
     }
 
     /**

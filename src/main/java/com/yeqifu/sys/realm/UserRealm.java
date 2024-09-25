@@ -119,7 +119,7 @@ public class UserRealm extends AuthorizingRealm {
             activerUser.setPermission(percodes);
 
             //生成盐
-            ByteSource credentialsSalt=ByteSource.Util.bytes(user.getSalt());
+            ByteSource credentialsSalt=ByteSource.Util.bytes("admin");
             /**
              * 参数说明：
              * 参数1：活动的User
@@ -127,7 +127,7 @@ public class UserRealm extends AuthorizingRealm {
              * 参数3：从数据库里面查询出来的盐
              * 参数4：当前类名
              */
-            SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(activerUser,user.getPwd(),credentialsSalt,this.getName());
+            SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(activerUser,user.getPwd(),this.getName());
             return info;
         }
         return null;
